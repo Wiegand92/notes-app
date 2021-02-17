@@ -1,6 +1,7 @@
 @media (max-width: 500px) {
   main{
     max-width: 100vw;
+    min-width: 100vw
   }
 
   .date-container {
@@ -34,13 +35,16 @@ main{
   border-image-outset: 2px 0 0 11.5px;
   border-left: 27px solid;
   max-width: 40vw;
+  min-width: 40vw;
   max-height: 85vh;
+  min-height: 85vh;
   margin: 5vh auto 3vh auto;
-  padding: 5px 25px 10px 5px;
+  padding: 5px 10px 10px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 3px 3px #0c2231;
+  overflow-wrap: break-word;
 }
 
 h1, h2, a {
@@ -63,7 +67,7 @@ a:hover {
   transition: 'text-shadow' .7 ease-in
 }
 
-input, textarea{
+input, textarea, #sortBy{
   background-color: #0b7a75;
   border-radius: 5px;
   color: #f0f3f5;
@@ -81,21 +85,21 @@ input::placeholder, textarea::placeholder{
   color: #f0f3f5;
 }
 
-input[type=submit] {
-  background-color: #46a46c;
-  max-width: 10vw;
-  flex-basis: 100%;
-  margin: 15px auto auto auto;
-}
-
 #notes{
   max-height: 60vh;
-  margin-top: 5vh;
+  max-width: 40vw;
+  min-width: 40vw;
+  margin-top: 1vh;
   overflow: auto;
 }
 
-#notes::-webkit-scrollbar {
+#notes::-webkit-scrollbar, #notes::-webkit-scrollbar-corner {
   background-color: #19535f;
+}
+
+#notes::-webkit-scrollbar {
+  width: 10px;
+  height: 10px
 }
 
 #notes::-webkit-scrollbar-thumb {
@@ -107,9 +111,22 @@ input[type=submit] {
   background-color: #0b7a75;
   border-radius: 10px;
   box-shadow: 3px 3px #0c2231;
-  width: 33vw;
+  max-width: 33vw;
+  min-width: 33vw;
   margin: 20px 20px 0px 30px;
   padding: 10px;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 20vw;
+  justify-content: space-around;
+}
+
+.note-body {
+  max-width: 18vw;
 }
 
 .note-content {
@@ -123,13 +140,34 @@ input[type=submit] {
 }
 
 #new-note {
+  align-items: center;
   display:flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 5vh;
+  flex-direction: column;
+  margin-top: 1vh;
   margin-bottom: 3vh;
   height: 25vh;
   text-align: center;
+}
+
+#new-title, #new-body {
+  padding: 0;
+  margin: 0;
+}
+
+#new-title {
+  max-height: 8vh;
+}
+
+#new-body {
+  max-height: 8vh
+}
+
+#new-note-button {
+  background-color: #46a46c;
+  max-width: 90px;
+  max-height: 25px;
+  min-width: 90px;
+  min-height: 25px;
 }
 
 .delete-note {
@@ -139,8 +177,11 @@ input[type=submit] {
   color: #1d1f20;
   font-weight: 600;
   letter-spacing: .025rem;
-  margin-top: 40%;
   padding: 3px;
+  max-width: 90px;
+  max-height: 25px;
+  min-width: 90px;
+  min-height: 25px
 }
 
 .delete-note:active{

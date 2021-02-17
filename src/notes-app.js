@@ -1,13 +1,10 @@
-import { displayNotes, newNoteHandler } from './methods.js'
 import dayjs from 'dayjs'
 import { v4 as uuidv4 } from 'uuid'
+import { newNoteHandler } from './methods.js'
+import { setFilters } from './filters.js'
+import { displayNotes } from './views'
 
 const date = dayjs()
-
-const filters = {
-  text: '',
-  sortBy: ''
-}
 
 const startNotes = [
   {
@@ -31,22 +28,22 @@ const newNote = document.querySelector('#new-note')
 
 newNote.addEventListener('submit', function(e) {
   e.preventDefault()
-  newNoteHandler(userNotes, filters)
+  newNoteHandler(userNotes)
 })
 
-displayNotes(userNotes, filters)
+displayNotes(userNotes)
 
 const textFilter = document.querySelector('#search')
 
 textFilter.addEventListener('input', function(e) {
-  filters.text = e.target.value
-  displayNotes(userNotes, filters)
+  setFilters({text: e.target.value})
+  displayNotes(userNotes)
 })
 
 const sortFilter = document.querySelector('#sortBy')
 
 sortFilter.addEventListener('change', function(e) {
-  filters.sortBy = e.target.value
-  displayNotes(userNotes, filters)
+  setFilters({sortBy: e.target.value})
+  displayNotes(userNotes)
 })
 
