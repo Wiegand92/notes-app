@@ -1,0 +1,35 @@
+.note-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#note-title {
+  flex-basis: 100%;
+  margin: auto;
+  text-align: center
+}
+
+#note-body {
+  flex-basis: 100%;
+  min-height: 55vh;
+  max-width: 75vw;
+  min-width: 30vw;
+  align-self: center
+}
+
+button {
+  margin: auto
+}
+
+.home {
+  background-color: #2c7cb0;
+  border: 2px outset #032d49;
+  color: white
+}
+
+.home:active {
+  background-color: #032d49;
+  border: 2px inset #021b2c;
+}

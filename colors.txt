@@ -1,0 +1,17 @@
+Dark Greens
+{
+  "Font-Dark Jungle Green":"1a1f16",
+  "Background-Forest Green Traditional":"1e3f20",
+  "Section-Background-Hunter Green":"345830",
+  "Button-Amazon":"4a7856",
+  "Border-Magic Mint":"94ecbe"
+}
+
+Blues
+{
+  "Boder-Midnight Green Eagle Green":"19535f",
+  "Section-Background-Pine Green":"0b7a75",
+  "Background-Dutch White":"d7c9aa",
+  "Font-Falu Red":"7b2d26",
+  "Font-BackgroundCultured":"f0f3f5"
+}
