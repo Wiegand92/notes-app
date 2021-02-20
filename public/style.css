@@ -1,11 +1,13 @@
-@media (max-width: 500px) {
-  main{
-    max-width: 100vw;
-    min-width: 100vw
+@media (orientation: portrait) {
+  @media (min-height: 700px){
+    #new-body {
+      display: block;
+    }
   }
-
-  .date-container {
-    display: none
+  main{
+    max-width: 80vw;
+    min-width: 80vw;
+    margin: 4vh auto
   }
 
   #new-body {
@@ -13,7 +15,54 @@
   }
 
   #notes {
-    max-width: 50vw
+    max-width: 75vw;
+    min-width: 75vw
+  }
+
+    .note{
+      max-width: 60vw;
+      min-width: 60vw;
+      margin: 2vh auto
+    }
+}
+
+@media (orientation: landscape) {
+  @media (max-height: 500px){
+    #new-body{
+      display: none
+    }
+  }
+
+  @media screen and (max-height: 376px) {
+    #header {
+      display: none
+    }
+  }
+  
+  main {
+    max-width: 50vw;
+    min-width: 50vw;
+    margin: 3vh auto;
+  }
+
+  #notes {
+    max-width: 50vw;
+    min-width: 50vw
+  }
+  
+  .note{
+    max-width: 45vw;
+    min-width: 45vw;
+    margin: 2vh auto
+  }
+}
+
+@media (max-width: 255px) {
+  .date-container{
+    display: none
+  }
+  .body-container, .note-body{
+    min-width: 90%
   }
 }
 
@@ -34,11 +83,8 @@ main{
   border-image-repeat:space;
   border-image-outset: 2px 0 0 11.5px;
   border-left: 27px solid;
-  max-width: 40vw;
-  min-width: 40vw;
-  max-height: 85vh;
-  min-height: 85vh;
-  margin: 5vh auto 3vh auto;
+  max-height: 90vh;
+  min-height: 90vh;
   padding: 5px 10px 10px 5px;
   display: flex;
   flex-direction: column;
@@ -56,16 +102,16 @@ h1, h2, a {
   text-shadow: .15rem .15rem #0c2231
 }
 
-h1 {
-  letter-spacing: .7rem
-}
+  a:hover {
+    text-shadow: .2rem .2rem #0c2231;
+    color: #f8c296;
+    transition: color .7s ease-in;
+    transition: 'text-shadow' .7 ease-in
+  }
 
-a:hover {
-  text-shadow: .2rem .2rem #0c2231;
-  color: #f8c296;
-  transition: color .7s ease-in;
-  transition: 'text-shadow' .7 ease-in
-}
+  h1 {
+    letter-spacing: .7rem
+  }
 
 input, textarea, #sortBy{
   background-color: #0b7a75;
@@ -81,63 +127,78 @@ input, textarea, #sortBy{
     flex: auto;
   }
 
-input::placeholder, textarea::placeholder{
-  color: #f0f3f5;
-}
+  input::placeholder, textarea::placeholder{
+    color: #f0f3f5;
+  }
 
 #notes{
   max-height: 60vh;
-  max-width: 40vw;
-  min-width: 40vw;
   margin-top: 1vh;
   overflow: auto;
 }
 
-#notes::-webkit-scrollbar, #notes::-webkit-scrollbar-corner {
-  background-color: #19535f;
-}
+  #notes::-webkit-scrollbar {
+    width: 10px;
+    height: 10px
+  }
 
-#notes::-webkit-scrollbar {
-  width: 10px;
-  height: 10px
-}
+    #notes::-webkit-scrollbar, #notes::-webkit-scrollbar-corner {
+      background-color: #19535f;
+    }
 
-#notes::-webkit-scrollbar-thumb {
-  background-color: #f4a15d;
-  border-radius: 10px;
-}
+    #notes::-webkit-scrollbar-thumb {
+      background-color: #f4a15d;
+      border-radius: 10px;
+    }
 
-.note {
-  background-color: #0b7a75;
-  border-radius: 10px;
-  box-shadow: 3px 3px #0c2231;
-  max-width: 33vw;
-  min-width: 33vw;
-  margin: 20px 20px 0px 30px;
-  padding: 10px;
-}
+  .note {
+    background-color: #0b7a75;
+    border-radius: 10px;
+    box-shadow: 3px 3px #0c2231;
+    padding: 10px;
+  }
 
-.body-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 20vw;
-  justify-content: space-around;
-}
+    .note-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-.note-body {
-  max-width: 18vw;
-}
+      .date-container{
+        max-width: 25vw
+      }
 
-.note-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+      .body-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 20vw;
+        justify-content: space-around;
+      }
 
-.invalid{
-  border-color: red
-}
+        .delete-note {
+          background-color: #da304c;
+          border: 2px outset #711423;
+          border-radius: 5px;
+          color: #1d1f20;
+          font-weight: 600;
+          letter-spacing: .025rem;
+          padding: 3px;
+          max-width: 90px;
+          max-height: 25px;
+          min-width: 90px;
+          min-height: 25px
+        }
+        
+        .delete-note:active{
+          background-color: #bf223c;
+          border: 2px inset #711423;
+          transition: 'background-color border' .2s linear
+        }
+
+        .note-body {
+          max-width: 18vw;
+        }
 
 #new-note {
   align-items: center;
@@ -149,43 +210,27 @@ input::placeholder, textarea::placeholder{
   text-align: center;
 }
 
-#new-title, #new-body {
-  padding: 0;
-  margin: 0;
-}
+  #new-title, #new-body {
+    padding: 0;
+    margin: 0;
+  }
 
-#new-title {
-  max-height: 8vh;
-}
+    #new-title {
+      max-height: 8vh;
+    }
 
-#new-body {
-  max-height: 8vh
-}
+      .invalid{
+        border-color: red
+      }
 
-#new-note-button {
-  background-color: #46a46c;
-  max-width: 90px;
-  max-height: 25px;
-  min-width: 90px;
-  min-height: 25px;
-}
+    #new-body {
+      max-height: 8vh
+    }
 
-.delete-note {
-  background-color: #da304c;
-  border: 2px outset #711423;
-  border-radius: 5px;
-  color: #1d1f20;
-  font-weight: 600;
-  letter-spacing: .025rem;
-  padding: 3px;
-  max-width: 90px;
-  max-height: 25px;
-  min-width: 90px;
-  min-height: 25px
-}
-
-.delete-note:active{
-  background-color: #bf223c;
-  border: 2px inset #711423;
-  transition: 'background-color border' .2s linear
-}
+  #new-note-button {
+    background-color: #46a46c;
+    max-width: 90px;
+    max-height: 25px;
+    min-width: 90px;
+    min-height: 25px;
+  }
